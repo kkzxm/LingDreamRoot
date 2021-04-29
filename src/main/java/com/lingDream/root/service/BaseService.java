@@ -2,6 +2,7 @@ package com.lingDream.root.service;
 
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.lingDream.root.tool.MyPage;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -369,6 +370,19 @@ public interface BaseService<T> {
   * @return
   */
  Page<T> selectPage(Page<T> page, Wrapper<T> wrapper);
+
+ /**
+  * <p>
+  * 翻页查询2
+  * </p>
+  *
+  * @param page    翻页对象
+  * @param wrapper 实体包装类 {@link Wrapper}
+  * @return
+  */
+ MyPage<T> selectPage(MyPage<T> page, Wrapper<T> wrapper);
+
+
 
 }
 

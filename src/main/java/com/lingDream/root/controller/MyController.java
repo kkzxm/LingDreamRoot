@@ -3,6 +3,7 @@ package com.lingDream.root.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.lingDream.root.service.BaseService;
 import com.lingDream.root.service.MyService;
 import com.lingDream.root.tool.MyPage;
 import org.springframework.ui.Model;
@@ -18,10 +19,10 @@ import static java.util.Objects.isNull;
  * @CreateTime: 2021-03-06 14:46
  */
 public abstract class MyController<T> implements BaseController<T> {
-    protected final MyService<T> service;
+    protected final BaseService<T> service;
     protected final String COMMENT;
 
-    public MyController(MyService<T> service, String COMMENT) {
+    public MyController(BaseService<T> service, String COMMENT) {
         this.service = service;
         this.COMMENT = COMMENT;
     }

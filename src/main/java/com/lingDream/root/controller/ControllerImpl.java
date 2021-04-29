@@ -1,6 +1,6 @@
 package com.lingDream.root.controller;
 
-import com.lingDream.root.service.MyService;
+import com.lingDream.root.service.BaseService;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @CreateTime: 2021-04-07 09:34
  */
 public abstract class ControllerImpl<T> extends MyController<T> {
-    public ControllerImpl(MyService<T> service, String COMMENT) {
+    public ControllerImpl(BaseService<T> service, String COMMENT) {
         super(service, COMMENT);
     }
 
