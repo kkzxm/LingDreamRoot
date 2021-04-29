@@ -3,12 +3,10 @@ package com.lingDream.root.service;
 import com.baomidou.mybatisplus.entity.TableInfo;
 import com.baomidou.mybatisplus.enums.SqlMethod;
 import com.baomidou.mybatisplus.exceptions.MybatisPlusException;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.mapper.Condition;
 import com.baomidou.mybatisplus.mapper.SqlHelper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.service.IService;
 import com.baomidou.mybatisplus.toolkit.*;
 import com.lingDream.root.mapper.MyMapper;
 import com.lingDream.root.tool.MyPage;
@@ -21,16 +19,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Objects.isNull;
-
 
 public abstract class MyService<T>
-        implements  IService<T>{
+        implements  BaseService<T>{
     //region 主要属性
-    protected MyMapper<T> baseMapper;
+    protected MyMapper<T> mapper;
 
     public MyService(MyMapper<T> baseMapper) {
-        this.baseMapper = baseMapper;
+        this.mapper = baseMapper;
     }
     //endregion
 
@@ -57,12 +53,12 @@ public abstract class MyService<T>
     //region 新增
     @Transactional(rollbackFor = {Exception.class})
     public boolean insert(T entity) {
-        return retBool(this.baseMapper.insert(entity));
+        return retBool(this.mapper.insert(entity));
     }
 
     @Transactional(rollbackFor = {Exception.class})
     public boolean insertAllColumn(T entity) {
-        return retBool(this.baseMapper.insertAllColumn(entity));
+        return retBool(this.mapper.insertAllColumn(entity));
     }
 
     @Transactional(rollbackFor = {Exception.class})
@@ -231,7 +227,7 @@ public abstract class MyService<T>
     //region 删除
     @Transactional(rollbackFor = {Exception.class})
     public boolean deleteById(Serializable id) {
-        return SqlHelper.delBool(this.baseMapper.deleteById(id));
+        return SqlHelper.delBool(this.mapper.deleteById(id));
     }
 
     @Transactional(rollbackFor = {Exception.class})
@@ -239,35 +235,35 @@ public abstract class MyService<T>
         if (MapUtils.isEmpty(columnMap)) {
             throw new MybatisPlusException("deleteByMap columnMap is empty.");
         } else {
-            return SqlHelper.delBool(this.baseMapper.deleteByMap(columnMap));
+            return SqlHelper.delBool(this.mapper.deleteByMap(columnMap));
         }
     }
 
     @Transactional(rollbackFor = {Exception.class})
     public boolean delete(Wrapper<T> wrapper) {
-        return SqlHelper.delBool(this.baseMapper.delete(wrapper));
+        return SqlHelper.delBool(this.mapper.delete(wrapper));
     }
 
     @Transactional(rollbackFor = {Exception.class})
     public boolean deleteBatchIds(Collection<? extends Serializable> idList) {
-        return SqlHelper.delBool(this.baseMapper.deleteBatchIds(idList));
+        return SqlHelper.delBool(this.mapper.deleteBatchIds(idList));
     }
     //endregion
 
     //region 修改
     @Transactional(rollbackFor = {Exception.class})
     public boolean updateById(T entity) {
-        return retBool(this.baseMapper.updateById(entity));
+        return retBool(this.mapper.updateById(entity));
     }
 
     @Transactional(rollbackFor = {Exception.class})
     public boolean updateAllColumnById(T entity) {
-        return retBool(this.baseMapper.updateAllColumnById(entity));
+        return retBool(this.mapper.updateAllColumnById(entity));
     }
 
     @Transactional(rollbackFor = {Exception.class})
     public boolean update(T entity, Wrapper<T> wrapper) {
-        return retBool(this.baseMapper.update(entity, wrapper));
+        return retBool(this.mapper.update(entity, wrapper));
     }
 
     @Transactional(rollbackFor = {Exception.class})
@@ -340,52 +336,52 @@ public abstract class MyService<T>
     //region 查询
     //region 查询单一对象
     public T selectById(Serializable id) {
-        return this.baseMapper.selectById(id);
+        return this.mapper.selectById(id);
     }
 
     public T selectOne(Wrapper<T> wrapper) {
-        return SqlHelper.getObject(this.baseMapper.selectList(wrapper));
+        return SqlHelper.getObject(this.mapper.selectList(wrapper));
     }
 
     public T selectOne(T entity) {
-        return this.baseMapper.selectOne(entity);
+        return this.mapper.selectOne(entity);
     }
 
     public int selectCount(Wrapper<T> wrapper) {
-        return SqlHelper.retCount(this.baseMapper.selectCount(wrapper));
+        return SqlHelper.retCount(this.mapper.selectCount(wrapper));
     }
 
     public Object selectObj(Wrapper<T> wrapper) {
-        return SqlHelper.getObject(this.baseMapper.selectObjs(wrapper));
+        return SqlHelper.getObject(this.mapper.selectObjs(wrapper));
     }
     //endregion
 
     //region 查询返回List
     public List<T> selectBatchIds(Collection<? extends Serializable> idList) {
-        return this.baseMapper.selectBatchIds(idList);
+        return this.mapper.selectBatchIds(idList);
     }
 
     public List<T> selectByMap(Map<String, Object> columnMap) {
-        return this.baseMapper.selectByMap(columnMap);
+        return this.mapper.selectByMap(columnMap);
     }
 
     public List<T> selectList(Wrapper<T> wrapper) {
-        return this.baseMapper.selectList(wrapper);
+        return this.mapper.selectList(wrapper);
     }
 
     //endregion
 
     //region 看不懂的
     public List<Object> selectObjs(Wrapper<T> wrapper) {
-        return this.baseMapper.selectObjs(wrapper);
+        return this.mapper.selectObjs(wrapper);
     }
 
     public List<Map<String, Object>> selectMaps(Wrapper<T> wrapper) {
-        return this.baseMapper.selectMaps(wrapper);
+        return this.mapper.selectMaps(wrapper);
     }
 
     public Map<String, Object> selectMap(Wrapper<T> wrapper) {
-        return SqlHelper.getObject(this.baseMapper.selectMaps(wrapper));
+        return SqlHelper.getObject(this.mapper.selectMaps(wrapper));
     }
     //endregion
 
@@ -407,12 +403,12 @@ public abstract class MyService<T>
     }
 
     public MyPage<T> selectPage(MyPage<T> page, Wrapper<T> wrapper) {
-        page.setRecords(this.baseMapper.selectPage(page, (Wrapper<T>) SqlHelper.fillWrapper(page, wrapper)));
+        page.setRecords(this.mapper.selectPage(page, (Wrapper<T>) SqlHelper.fillWrapper(page, wrapper)));
         return page;
     }
 
     public Page<Map<String, Object>> selectMapsPage(Page page, Wrapper<T> wrapper) {
-        return page.setRecords(this.baseMapper.selectMapsPage(page, (Wrapper<T>) SqlHelper.fillWrapper(page, wrapper)));
+        return page.setRecords(this.mapper.selectMapsPage(page, (Wrapper<T>) SqlHelper.fillWrapper(page, wrapper)));
     }
     //endregion
 
