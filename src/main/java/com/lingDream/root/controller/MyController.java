@@ -4,7 +4,6 @@ package com.lingDream.root.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.lingDream.root.service.BaseService;
-import com.lingDream.root.service.MyService;
 import com.lingDream.root.tool.MyPage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
@@ -70,10 +69,6 @@ public abstract class MyController<T> implements BaseController<T> {
     //endregion
 
     //region 添加或修改相关
-
-    protected void setPath(Model model) {
-
-    }
 
     //region 添加或修改完成后,指定需要跳转到的页面
     protected void setRequestURL(HttpServletRequest request, Model model) {
