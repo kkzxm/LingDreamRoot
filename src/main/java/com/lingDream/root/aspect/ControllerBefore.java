@@ -25,7 +25,7 @@ public class ControllerBefore {
      * 控制该控制层
      * 环绕通知的开关
      */
-    @Value("lingDream.ControllerBefore.aspect.on_off")
+    @Value("lingDream.controller.before.aspect.on_off")
     private boolean controllerBeforeAspectOnOff;
 
     @Around(value = "execution(* com.lingDream.root.controller.ControllerImpl.*(javax.servlet.http.HttpServletRequest, Object,..))")

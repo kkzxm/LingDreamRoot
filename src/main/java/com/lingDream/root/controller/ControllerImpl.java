@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 
+import static com.lingDream.root.utils.strUtil.StringUtils.lowFirstChar;
+
 /**
  * @Author: 酷酷宅小明
  * @CreateTime: 2021-04-07 09:34
@@ -22,7 +24,15 @@ public abstract class ControllerImpl<T> extends MyController<T> {
 
     @Override
     public String toInsertPage(Model model) {
-        return setToInsertPage(model);
+        //判断model中存储的信息长度,设置出路径(添加/修改),此方法应该放在子类toInsertPage的第一行
+        String path = model.asMap().size() == 0 ? "add" : "update";
+        model.addAttribute("path", path);
+
+        setTitle(model);
+        String partAddress = this.getClass().getSimpleName();
+        partAddress = partAddress.substring(0, partAddress.length() - 10);
+        model.addAttribute("partAddress", lowFirstChar(partAddress));
+        return insertPage;
     }
 
     @Override
@@ -32,7 +42,7 @@ public abstract class ControllerImpl<T> extends MyController<T> {
         if (!service.insert(entity)) {
             model.addAttribute("result", COMMENT + "添加失败");
         }
-        return "admin/adminPublic/addResult";
+        return resultPage;
     }
 
     @Override
@@ -58,6 +68,6 @@ public abstract class ControllerImpl<T> extends MyController<T> {
         if (!service.updateById(entity)) {
             model.addAttribute("result", COMMENT + "修改失败");
         }
-        return "admin/adminPublic/addResult";
+        return resultPage;
     }
 }

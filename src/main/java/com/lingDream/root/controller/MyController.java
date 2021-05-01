@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.lingDream.root.service.BaseService;
 import com.lingDream.root.service.MyService;
 import com.lingDream.root.tool.MyPage;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,13 +20,28 @@ import static java.util.Objects.isNull;
  * @CreateTime: 2021-03-06 14:46
  */
 public abstract class MyController<T> implements BaseController<T> {
+    //region 属性和构造方法
+
+    //region 两个主要属性(通过构造函数注入)
     protected final BaseService<T> service;
     protected final String COMMENT;
 
     public MyController(BaseService<T> service, String COMMENT) {
         this.service = service;
-        this.COMMENT = COMMENT;
+        this.COMMENT = COMMENT+" →";
     }
+    //endregion
+
+    //region 其它属性(通过配置文件注入)
+    @Value("lingDream.controller.listPage")
+    String listPage;
+    @Value("lingDream.controller.insertPage")
+    String insertPage;
+    @Value("lingDream.controller.resultPage")
+    String resultPage;
+    //endregion
+
+    //endregion
 
     //region getMyPage
     protected MyPage<T> getMyPage(Integer thisPage) {
@@ -54,27 +70,10 @@ public abstract class MyController<T> implements BaseController<T> {
     //endregion
 
     //region 添加或修改相关
-    /**
-     * 设置路径(添加/修改),
-     * 此方法应该放在子类toInsertPage的第一行
-     */
+
     protected void setPath(Model model) {
-        String path = model.asMap().size() == 0 ? "add" : "update";
-        model.addAttribute("path", path);
+
     }
-
-    //region 去到添加页面
-    public String setToInsertPage(Model model) {
-        setPath(model);
-        setTitle(model);
-
-        String partAddress = this.getClass().getSimpleName();
-        partAddress = partAddress.substring(0, partAddress.length() - 10);
-        model.addAttribute("partAddress", lowFirstChar(partAddress));
-
-        return "admin/index/insert";
-    }
-    //endregion
 
     //region 添加或修改完成后,指定需要跳转到的页面
     protected void setRequestURL(HttpServletRequest request, Model model) {
@@ -107,7 +106,7 @@ public abstract class MyController<T> implements BaseController<T> {
 
         setPageTitleAndPartAddress(model, val, filter);
 
-        return "admin/index/list";
+        return listPage;
     }
     //endregion
 

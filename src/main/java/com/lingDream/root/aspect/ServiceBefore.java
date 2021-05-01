@@ -24,6 +24,7 @@ import static java.util.Objects.isNull;
 @Aspect
 @Component
 public class ServiceBefore extends ApplicationObjectSupport {
+    //region 属性/构造器/开关
     //region 主要属性
     ApplicationContext applicationContext;
     public ServiceBefore(ApplicationContext applicationContext) {
@@ -36,19 +37,20 @@ public class ServiceBefore extends ApplicationObjectSupport {
      * 业务层
      * 环绕通知的开关
      */
-    @Value("lingDream.ServiceBefore.aspect.on_off")
-    private boolean serviceBeforeAspectOnOff;
-    @Value("lingDream.ServiceInsertBefore.aspect.on_off")
-    private boolean serviceInsertBeforeAspectOnOff;
-    @Value("lingDream.ServiceUpdateBefore.aspect.on_off")
-    private boolean serviceupdateBeforeAspectOnOff;
+    @Value("lingDream.service.aspect.on_off")
+    private boolean serviceAspectOnOff;
+    @Value("lingDream.service.insert.aspect.on_off")
+    private boolean serviceInsertAspectOnOff;
+    @Value("lingDream.Service.update.aspect.on_off")
+    private boolean serviceUpdateAspectOnOff;
+    //endregion
     //endregion
 
     //region insertBefore
     @Around("execution(* com.lingDream.root.service.MyService.insert(..))")
     public Object insertBefore(ProceedingJoinPoint pjp) throws Throwable {
         //开关控制
-        if (serviceInsertBeforeAspectOnOff || serviceBeforeAspectOnOff) {
+        if (serviceInsertAspectOnOff || serviceAspectOnOff) {
             //数据准备
             Object entity = getEntity(pjp);
             Class<?> entityClass = entity.getClass();
@@ -91,8 +93,7 @@ public class ServiceBefore extends ApplicationObjectSupport {
     @Around("execution(* com.lingDream.root.service.MyService.updateById(..))")
     public Object updateBefore(ProceedingJoinPoint pjp) throws Throwable {
         //开关控制
-        if (serviceBeforeAspectOnOff || serviceupdateBeforeAspectOnOff) {
-
+        if (serviceAspectOnOff || serviceUpdateAspectOnOff) {
             Object entity = getEntity(pjp);
             Object entityIdValue = getIDValue(entity);
 
