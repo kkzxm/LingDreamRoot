@@ -5,6 +5,7 @@ import com.lingDream.root.mapper.MyMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Component;
@@ -23,42 +24,59 @@ import static java.util.Objects.isNull;
 @Aspect
 @Component
 public class ServiceBefore extends ApplicationObjectSupport {
+    //region 主要属性
     ApplicationContext applicationContext;
     public ServiceBefore(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
+    //endregion
+
+    //region 开关控制
+    /**
+     * 业务层
+     * 环绕通知的开关
+     */
+    @Value("lingDream.ServiceBefore.aspect.on_off")
+    private boolean serviceBeforeAspectOnOff;
+    @Value("lingDream.ServiceInsertBefore.aspect.on_off")
+    private boolean serviceInsertBeforeAspectOnOff;
+    @Value("lingDream.ServiceUpdateBefore.aspect.on_off")
+    private boolean serviceupdateBeforeAspectOnOff;
+    //endregion
 
     //region insertBefore
     @Around("execution(* com.lingDream.root.service.MyService.insert(..))")
     public Object insertBefore(ProceedingJoinPoint pjp) throws Throwable {
-        //数据准备
-        Object entity = getEntity(pjp);
-        Class<?> entityClass = entity.getClass();
+        //开关控制
+        if (serviceInsertBeforeAspectOnOff || serviceBeforeAspectOnOff) {
+            //数据准备
+            Object entity = getEntity(pjp);
+            Class<?> entityClass = entity.getClass();
 
-        //查看唯一列是否存在,如果存在,则直接返回false
-        Object selectByOnly = selectByOnly(entity);
-        if (!isNull(selectByOnly)) return false;
+            //查看唯一列是否存在,如果存在,则直接返回false
+            Object selectByOnly = selectByOnly(entity);
+            if (!isNull(selectByOnly)) return false;
 
-        //遍历对象内部属性(筛选出与对象同包下的类对象(比如,学生类里面有个班级属性)),不存在则先添加一下,再次查询
-        Field[] fields = entityClass.getDeclaredFields();
-        for (Field field : fields) {
-            Class<?> fieldType = field.getType();
-            if (!fieldType.getPackage().equals(entityClass.getPackage())) continue;
+            //遍历对象内部属性(筛选出与对象同包下的类对象(比如,学生类里面有个班级属性)),不存在则先添加一下,再次查询
+            Field[] fields = entityClass.getDeclaredFields();
+            for (Field field : fields) {
+                Class<?> fieldType = field.getType();
+                if (!fieldType.getPackage().equals(entityClass.getPackage())) continue;
 
-            Object fieldValue = getFieldValue(field, entity);
+                Object fieldValue = getFieldValue(field, entity);
 
-            MyMapper<Object> fieldMapper = getMapper(fieldValue);
-            Object selectOne = fieldMapper.selectOne(fieldValue);
+                MyMapper<Object> fieldMapper = getMapper(fieldValue);
+                Object selectOne = fieldMapper.selectOne(fieldValue);
 
-            if (isNull(selectOne)) {
-                fieldMapper.insert(fieldValue);
-                selectOne = fieldMapper.selectOne(fieldValue);
+                if (isNull(selectOne)) {
+                    fieldMapper.insert(fieldValue);
+                    selectOne = fieldMapper.selectOne(fieldValue);
+                }
+
+                String set = get_set(field.getName(), "set");
+                entityClass.getMethod(set, fieldType).invoke(entity, selectOne);
             }
-
-            String set = get_set(field.getName(), "set");
-            entityClass.getMethod(set,fieldType).invoke(entity,selectOne);
         }
-        System.out.println(entity);
         return pjp.proceed();
     }
     //endregion
@@ -66,18 +84,23 @@ public class ServiceBefore extends ApplicationObjectSupport {
     //region updateBefore
     /**
      * 更新之前的操作,
-     * 更新之前查询唯一列是否存在,存在则直接返回false,不准修改
+     * 更新之前查询唯一列是否存在,
+     * 存在则直接返回false,不可修改
      * 不存在则执行修改
      */
     @Around("execution(* com.lingDream.root.service.MyService.updateById(..))")
     public Object updateBefore(ProceedingJoinPoint pjp) throws Throwable {
-        Object entity = getEntity(pjp);
-        Object entityIdValue = getIDValue(entity);
+        //开关控制
+        if (serviceBeforeAspectOnOff || serviceupdateBeforeAspectOnOff) {
 
-        MyMapper<Object> mapper = getMapper(entity);
-        Object selectByOnly = mapper.selectByOnly(entity);
+            Object entity = getEntity(pjp);
+            Object entityIdValue = getIDValue(entity);
 
-        if (!isNull(selectByOnly) && !getIDValue(selectByOnly).equals(entityIdValue)) return false;
+            MyMapper<Object> mapper = getMapper(entity);
+            Object selectByOnly = mapper.selectByOnly(entity);
+
+            if (!isNull(selectByOnly) && !getIDValue(selectByOnly).equals(entityIdValue)) return false;
+        }
         return pjp.proceed();
     }
     //endregion
