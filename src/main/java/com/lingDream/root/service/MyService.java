@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.toolkit.*;
 import com.lingDream.root.mapper.MyMapper;
 import com.lingDream.root.tool.MyPage;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.binding.MapperMethod;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,18 @@ public abstract class MyService<T>
 
     public MyService(MyMapper<T> baseMapper) {
         this.mapper = baseMapper;
+    }
+    //endregion
+
+    //region 自定义的
+    @Override
+    public T selectByOnly(T t){
+        return mapper.selectByOnly(t);
+    }
+
+    @Override
+    public int insertList(@Param("list") List<T> list){
+        return mapper.insertList(list);
     }
     //endregion
 

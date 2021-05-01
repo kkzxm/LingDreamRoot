@@ -3,6 +3,7 @@ package com.lingDream.root.service;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.lingDream.root.tool.MyPage;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -25,6 +26,13 @@ import java.util.Map;
  * @Date 2016-04-20
  */
 public interface BaseService<T> {
+
+ /**
+  * 批量插入(自定义)
+  * @param list List<T>
+  * @return 添加受影响行数
+  */
+ int insertList(@Param("list") List<T> list);
 
  /**
   * <p>
@@ -297,6 +305,14 @@ public interface BaseService<T> {
   * @return Object
   */
  Object selectObj(Wrapper<T> wrapper);
+
+
+ /**
+  * @param entity 实体对象
+  * @return 某个列唯一的对象
+  */
+ T selectByOnly(T entity);
+
 
  /**
   * <p>
