@@ -1,9 +1,9 @@
 package com.lingDream.root.aspect;
 
+import com.lingDream.root.config.aboutController.ControllerAspectConfig;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,17 +20,21 @@ import static java.util.Objects.isNull;
  */
 @Aspect
 @Component
-public class ControllerBefore {
+public class ControllerAspect {
+    private final ControllerAspectConfig controllerAspectConfig;
+
+    public ControllerAspect(ControllerAspectConfig controllerAspectConfig) {
+        this.controllerAspectConfig = controllerAspectConfig;
+    }
+
     /**
      * 控制该控制层
      * 环绕通知的开关
      */
-    @Value("lingDream.controller.before.aspect.on_off")
-    private boolean controllerBeforeAspectOnOff;
 
     @Around(value = "execution(* com.lingDream.root.controller.ControllerImpl.*(javax.servlet.http.HttpServletRequest, Object,..))")
     private Object setEntity(ProceedingJoinPoint pjp) throws Throwable {
-        if (!controllerBeforeAspectOnOff) return pjp.proceed();
+        if (!controllerAspectConfig.isControllerBeforeAspectOnOff()) return pjp.proceed();
         Object entity = getEntity(pjp);
         Class<?> entityClass = entity.getClass();
         Field[] declaredFields = entityClass.getDeclaredFields();

@@ -3,9 +3,10 @@ package com.lingDream.root.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.lingDream.root.config.aboutController.ControllerPageConfig;
 import com.lingDream.root.service.BaseService;
 import com.lingDream.root.tool.MyPage;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,24 +21,18 @@ import static java.util.Objects.isNull;
  */
 public abstract class MyController<T> implements BaseController<T> {
     //region 属性和构造方法
+    @Autowired
+    protected ControllerPageConfig controllerPageConfig;
 
     //region 两个主要属性(通过构造函数注入)
     protected final BaseService<T> service;
     protected final String COMMENT;
 
-    public MyController(BaseService<T> service, String COMMENT) {
+    public MyController(BaseService<T> service,
+                        String COMMENT) {
         this.service = service;
         this.COMMENT = COMMENT+" →";
     }
-    //endregion
-
-    //region 其它属性(通过配置文件注入)
-    @Value("lingDream.controller.listPage")
-    String listPage;
-    @Value("lingDream.controller.insertPage")
-    String insertPage;
-    @Value("lingDream.controller.resultPage")
-    String resultPage;
     //endregion
 
     //endregion
@@ -82,28 +77,6 @@ public abstract class MyController<T> implements BaseController<T> {
     //endregion
 
     //region 查询相关
-    //region 设置当前页面所需的数据
-    /**
-     * 设置数据显示页面需要用的数据,
-     * 如果有模糊查询,
-     *
-     * @param model    模型数据
-     * @param val      模糊查询时的值 可以为null
-     * @param filter   模糊查询数据库表名 可以为null
-     * @param thisPage 当前页
-     * @return 前端显示查询结果的页面路径
-     */
-    protected String setThisPageInData(Model model, String val, String filter, Integer thisPage) {
-        if (thisPage == null) thisPage = 1;
-        Wrapper<T> wrapper = getWrapper(val, filter);
-        MyPage<T> myPage = getMyPage(thisPage, wrapper);
-        model.addAttribute("page", myPage);
-
-        setPageTitleAndPartAddress(model, val, filter);
-
-        return listPage;
-    }
-    //endregion
 
     //region 拼接查询时用的wrapper
     /**
@@ -121,7 +94,7 @@ public abstract class MyController<T> implements BaseController<T> {
      * @param filter  糊糊查询用的数据库字段名
      * @return 拼接出的条件构造器
      */
-    private Wrapper<T> getWrapper(String val, String filter) {
+    protected Wrapper<T> getWrapper(String val, String filter) {
         Wrapper<T> wrapper = new EntityWrapper<>();
         wrapper.like(filter, val);
         return wrapper;
@@ -135,7 +108,7 @@ public abstract class MyController<T> implements BaseController<T> {
      * 用来设置
      * 页面零件地址
      */
-    private void setPageTitleAndPartAddress(Model model, String val, String filter) {
+    protected void setPageTitleAndPartAddress(Model model, String val, String filter) {
         setTitle(model);
 
         String partAddress = this.getClass().getSimpleName();

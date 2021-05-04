@@ -1,6 +1,8 @@
 package com.lingDream.root.controller;
 
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.lingDream.root.service.BaseService;
+import com.lingDream.root.tool.MyPage;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +21,14 @@ public abstract class ControllerImpl<T> extends MyController<T> {
 
     @Override
     public String getPage(Model model, String val, String filter, Integer thisPage) {
-        return setThisPageInData(model, val, filter, thisPage);
+        if (thisPage == null) thisPage = 1;
+        Wrapper<T> wrapper = getWrapper(val, filter);
+        MyPage<T> myPage = getMyPage(thisPage, wrapper);
+        model.addAttribute("page", myPage);
+
+        setPageTitleAndPartAddress(model, val, filter);
+
+        return controllerPageConfig.getListPage();
     }
 
     @Override
@@ -32,7 +41,7 @@ public abstract class ControllerImpl<T> extends MyController<T> {
         String partAddress = this.getClass().getSimpleName();
         partAddress = partAddress.substring(0, partAddress.length() - 10);
         model.addAttribute("partAddress", lowFirstChar(partAddress));
-        return insertPage;
+        return controllerPageConfig.getInsertPage();
     }
 
     @Override
@@ -42,7 +51,7 @@ public abstract class ControllerImpl<T> extends MyController<T> {
         if (!service.insert(entity)) {
             model.addAttribute("result", COMMENT + "添加失败");
         }
-        return resultPage;
+        return controllerPageConfig.getResultPage();
     }
 
     @Override
@@ -68,6 +77,6 @@ public abstract class ControllerImpl<T> extends MyController<T> {
         if (!service.updateById(entity)) {
             model.addAttribute("result", COMMENT + "修改失败");
         }
-        return resultPage;
+        return controllerPageConfig.getResultPage();
     }
 }
