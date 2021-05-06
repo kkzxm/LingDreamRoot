@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fc1f000f-9c82-4a5e-86a0-f7aad606d60c" name="默认变更列表" comment="删除了运行类,添加Aspect开关,现默认为关闭,在考虑,未来,如果只是自己用的话,则让它保持一直开启即可" />
+    <list id="781d56ec-c7f4-4102-a986-c15df2c586db" name="add README.md file" comment="" />
+    <list id="fcfc40aa-df7c-4b6f-8caa-c09c6f677220" name="del README.md file" comment="">
+      <change beforePath="$PROJECT_DIR$/lingDreamRoot.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProjectId" id="1rpD0yHZ0muQBI9aaEq8euzi3Zt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/lingDream/root/aspect" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.17035776" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\LingDreamWorkspace\LingDreamRoot\src\main\java\com\lingDream\root\aspect" />
+      <recent name="E:\LingDreamWorkspace\LingDreamRoot\src\main\java\com\lingDream\root\controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lingDream.root.aspect.config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RunApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="lingDreamRoot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lingDream.root.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lingDream.root.RunApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.RunApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="fc1f000f-9c82-4a5e-86a0-f7aad606d60c" name="默认变更列表" comment="" />
+      <changelist id="fcfc40aa-df7c-4b6f-8caa-c09c6f677220" name="del README.md file" comment="" />
+      <changelist id="781d56ec-c7f4-4102-a986-c15df2c586db" name="add README.md file" comment="" />
+      <created>1619663921229</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619663921229</updated>
+      <workItem from="1619663924091" duration="3694000" />
+      <workItem from="1619667728497" duration="871000" />
+      <workItem from="1619678980779" duration="2034000" />
+      <workItem from="1619743627987" duration="129000" />
+      <workItem from="1619848125126" duration="3295000" />
+      <workItem from="1619851965105" duration="55000" />
+      <workItem from="1619853447013" duration="278000" />
+      <workItem from="1619854799715" duration="436000" />
+      <workItem from="1619925255166" duration="31000" />
+      <workItem from="1619925313952" duration="14000" />
+      <workItem from="1619945565116" duration="115000" />
+      <workItem from="1619945685047" duration="91000" />
+      <workItem from="1619945788059" duration="2578000" />
+      <workItem from="1619955046772" duration="2236000" />
+      <workItem from="1619957791884" duration="11000" />
+      <workItem from="1619958443459" duration="32000" />
+      <workItem from="1619962264738" duration="46000" />
+      <workItem from="1619964733344" duration="34000" />
+      <workItem from="1619965084191" duration="36000" />
+      <workItem from="1620099064839" duration="136000" />
+      <workItem from="1620099789932" duration="14000" />
+      <workItem from="1620101223180" duration="425000" />
+      <workItem from="1620197474154" duration="1000" />
+      <workItem from="1620264904812" duration="352000" />
+    </task>
+    <task id="LOCAL-00001" summary="第二版开始,&#10;一. 添加了两个环绕通知类:&#10;1. ControllerBefore.java &#10;    改变控制层中传入的值,&#10;2. ServiceBefore.java&#10;    改变service层中传入的值,影响到的方法:insert和updateById&#10;&#10;二. 修改了控制层的结构&#10;1. BaseController.java 作为顶级控制层类&#10;2. MyController.java 作为存储中间类,存储公共的方法&#10;3. ControllerImpl.java 作为实现类,真正实现BaseController中的方法">
+      <created>1619666379842</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619666379842</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add README.md file">
+      <created>1619667180764</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619667180764</updated>
+    </task>
+    <task id="LOCAL-00003" summary="del README.md file">
+      <created>1619667779353</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619667779353</updated>
+    </task>
+    <task id="LOCAL-00004" summary="添加了一个BaseService的接口(复制于原IService)类&#10;MyService类取消实现IService,转为实现BaseService">
+      <created>1619682172317</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619682172317</updated>
+    </task>
+    <task id="LOCAL-00005" summary="更改了一下Controller相关的类,&#10;更改controller里的属性myService改名为Service,&#10;并让它的类型,更改为BaseService &#10;即: BaseService&lt;&gt; service;&#10;&#10;在BaseService中添加了一个selectPage()的重载方法,返回MyPage&lt;T&gt;">
+      <created>1619682741673</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619682741673</updated>
+    </task>
+    <task id="LOCAL-00006" summary="BaseService添加了两个自定义的方法,并实现">
+      <created>1619848681529</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619848681529</updated>
+    </task>
+    <task id="LOCAL-00007" summary="在aspect中两具类中加了四个开关,其中Controller加了一个,Service加了三个">
+      <created>1619850015540</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619850015540</updated>
+    </task>
+    <task id="LOCAL-00008" summary="将一些不可控制的如,总列表页面,总添加页面,总操作结果页面分离出,用配置文件操作">
+      <created>1619851339087</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619851339087</updated>
+    </task>
+    <task id="LOCAL-00009" summary="无用的代码删除">
+      <created>1619851394953</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619851394953</updated>
+    </task>
+    <task id="LOCAL-00010" summary="删除了运行类,添加Aspect开关,现默认为关闭,在考虑,未来,如果只是自己用的话,则让它保持一直开启即可">
+      <created>1620101324362</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1620101324362</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第二版开始,&#10;一. 添加了两个环绕通知类:&#10;1. ControllerBefore.java &#10;    改变控制层中传入的值,&#10;2. ServiceBefore.java&#10;    改变service层中传入的值,影响到的方法:insert和updateById&#10;&#10;二. 修改了控制层的结构&#10;1. BaseController.java 作为顶级控制层类&#10;2. MyController.java 作为存储中间类,存储公共的方法&#10;3. ControllerImpl.java 作为实现类,真正实现BaseController中的方法" />
+    <MESSAGE value="add README.md file" />
+    <MESSAGE value="del README.md file" />
+    <MESSAGE value="添加了一个BaseService的接口(复制于原IService)类&#10;MyService类取消实现IService,转为实现BaseService" />
+    <MESSAGE value="更改了一下Controller相关的类,&#10;更改controller里的属性myService改名为Service,&#10;并让它的类型,更改为BaseService &#10;即: BaseService&lt;&gt; service;&#10;&#10;在BaseService中添加了一个selectPage()的重载方法,返回MyPage&lt;T&gt;" />
+    <MESSAGE value="BaseService添加了两个自定义的方法,并实现" />
+    <MESSAGE value="在aspect中两具类中加了四个开关,其中Controller加了一个,Service加了三个" />
+    <MESSAGE value="将一些不可控制的如,总列表页面,总添加页面,总操作结果页面分离出,用配置文件操作" />
+    <MESSAGE value="无用的代码删除" />
+    <MESSAGE value="删除了运行类,添加Aspect开关,现默认为关闭,在考虑,未来,如果只是自己用的话,则让它保持一直开启即可" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除了运行类,添加Aspect开关,现默认为关闭,在考虑,未来,如果只是自己用的话,则让它保持一直开启即可" />
+  </component>
+</project>
