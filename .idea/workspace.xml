@@ -4,55 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc1f000f-9c82-4a5e-86a0-f7aad606d60c" name="默认变更列表" comment="删除了运行类,添加Aspect开关,现默认为关闭,在考虑,未来,如果只是自己用的话,则让它保持一直开启即可">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/lingDream-spring-boot-autoconfigure.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/lingDream-spring-boot-autoconfigure.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/aspect/ControllerAspect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/aspect/LingDreamConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/aspect/ServiceBefore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/config/LingDreamRootAutoConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/config/MybatisPlusConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/controller/BaseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/controller/ControllerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/controller/MyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/mapper/MyMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/service/BaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/service/MyService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/tool/MyPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/utils/ArrayUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/utils/MapUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/utils/SetPropertyInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/utils/fileUtil/FileUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/utils/strUtil/PinyinUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/src/main/java/com/lingDream/root/utils/strUtil/StringUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-starter/lingDream-spring-boot-starter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lingDream-spring-boot-starter/lingDream-spring-boot-starter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDream-spring-boot-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lingDream-spring-boot-starter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingDreamRoot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/src/main/java/com/lingdream/root/RootApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/src/test/java/com/lingdream/root/RootApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/src/main/java/starter/StarterApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/src/test/java/starter/StarterApplicationTests.java" beforeDir="false" />
+    <list default="true" id="fc1f000f-9c82-4a5e-86a0-f7aad606d60c" name="默认变更列表" comment="修改了一些小Bug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="781d56ec-c7f4-4102-a986-c15df2c586db" name="add README.md file" comment="" />
     <list id="fcfc40aa-df7c-4b6f-8caa-c09c6f677220" name="del README.md file" comment="修改了一些小Bug" />
@@ -245,7 +199,8 @@
       <workItem from="1620617620474" duration="1592000" />
       <workItem from="1620619236685" duration="2864000" />
       <workItem from="1620624876735" duration="1957000" />
-      <workItem from="1620627137935" duration="5196000" />
+      <workItem from="1620627137935" duration="5561000" />
+      <workItem from="1620632758804" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="第二版开始,&#10;一. 添加了两个环绕通知类:&#10;1. ControllerBefore.java &#10;    改变控制层中传入的值,&#10;2. ServiceBefore.java&#10;    改变service层中传入的值,影响到的方法:insert和updateById&#10;&#10;二. 修改了控制层的结构&#10;1. BaseController.java 作为顶级控制层类&#10;2. MyController.java 作为存储中间类,存储公共的方法&#10;3. ControllerImpl.java 作为实现类,真正实现BaseController中的方法">
       <created>1619666379842</created>
