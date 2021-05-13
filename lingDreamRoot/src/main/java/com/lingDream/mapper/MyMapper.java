@@ -1,7 +1,7 @@
 package com.lingDream.mapper;
 
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -23,4 +23,15 @@ public interface MyMapper<T> extends BaseMapper<T> {
      * 根据表中的某一个唯一列查询
      */
     T selectByOnly(T t);
+
+    /**
+     * 自定义的一个分页查询,
+     * 用来处理一对多的特殊情况
+     * (原因:
+     * MyBatisPlus会自动添加后面的Limit参数,
+     * 暂时没找到更好的办法
+     * )
+     *
+     */
+    List<T> selectMyPage(@Param("start") Long start,@Param("size") Long size);
 }

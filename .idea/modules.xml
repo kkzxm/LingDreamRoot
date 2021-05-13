@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/lingDream-spring-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/lingDream-spring-boot-autoconfigure/lingDream-spring-boot-autoconfigure.iml" />
       <module fileurl="file://$PROJECT_DIR$/lingDream-spring-boot-starter/lingDream-spring-boot-starter.iml" filepath="$PROJECT_DIR$/lingDream-spring-boot-starter/lingDream-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/lingDreamRoot/lingDreamRoot.iml" filepath="$PROJECT_DIR$/lingDreamRoot/lingDreamRoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
     </modules>
   </component>
 </project>

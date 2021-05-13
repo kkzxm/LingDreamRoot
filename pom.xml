@@ -12,13 +12,14 @@
 
     <groupId>com.lingDream</groupId>
     <artifactId>lingDream</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 
 
     <modules>
         <module>lingDream-spring-boot-autoconfigure</module>
         <module>lingDream-spring-boot-starter</module>
         <module>lingDreamRoot</module>
+        <module>utils</module>
     </modules>
 
     <properties>
@@ -26,7 +27,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
-        <project-version>1.1.0</project-version>
+        <project-version>1.2.0</project-version>
     </properties>
 
 
@@ -40,7 +41,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>2.2.0</version>
+            <version>3.4.2</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
